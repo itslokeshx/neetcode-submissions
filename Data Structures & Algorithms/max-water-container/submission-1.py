@@ -1,0 +1,22 @@
+class Solution:
+    def maxArea(self, heights: List[int]) -> int:
+        left=0
+        right=len(heights)-1
+        capacity=0
+        
+        while (left < right):
+            width= abs(right-left)
+            height=min(heights[right],heights[left])
+            area=width*height
+            capacity=max(capacity,area)
+            if(heights[left] < heights[right]):
+                left+=1
+            else:
+                right-=1
+
+        return capacity
+
+            
+
+
+        
